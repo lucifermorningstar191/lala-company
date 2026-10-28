@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lala Co. | Best Software</title>
+  <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, Helvetica, sans-serif; background: #2c3e50; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 20px; }
+.browser-bar { background: #e8e8e8; border-radius: 8px 8px 0 0; padding: 8px 12px 0; width: 100%; max-width: 1100px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+.browser-dots { display: flex; gap: 6px; margin-bottom: 6px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.red { background: #ff5f56; } .dot.yellow { background: #ffbd2e; } .dot.green { background: #27c93f; }
+.tabs { display: flex; gap: 4px; margin-bottom: 6px; }
+.tab { background: #fff; padding: 6px 16px; border-radius: 6px 6px 0 0; font-size: 12px; color: #333; border: 1px solid #ccc; border-bottom: none; }
+.tab-new { background: #ddd; padding: 6px 12px; border-radius: 6px 6px 0 0; font-size: 14px; color: #666; }
+.address-bar { background: #fff; border: 1px solid #ccc; border-radius: 4px; padding: 6px 12px; font-size: 13px; display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.url { color: #1a73e8; }
+.website { background: #fff; width: 100%; max-width: 1100px; box-shadow: 0 8px 30px rgba(0,0,0,0.5); position: relative; overflow: hidden; }
+.top-banner { background: linear-gradient(90deg, #ffeb3b, #ffc107); display: flex; align-items: center; padding: 10px 15px; border-bottom: 4px solid #d32f2f; }
+.logo-box { background: #4caf50; border: 3px solid #fff; border-radius: 8px; padding: 8px; text-align: center; box-shadow: 3px 3px 0 #000; width: 110px; }
+.boss-face { font-size: 40px; line-height: 1; color: #fff; }
+.boss-name { font-size: 11px; font-weight: bold; line-height: 1.2; margin-top: 4px; text-shadow: 1px 1px 0 #000; color: #fff; }
+.main-title { flex: 1; text-align: center; padding: 0 10px; }
+.main-title h1 { font-family: Impact, "Arial Black", sans-serif; font-size: 52px; color: #d32f2f; text-shadow: 3px 3px 0 #fff, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; letter-spacing: 2px; line-height: 1; }
+.tagline { font-size: 18px; font-weight: bold; color: #1a237e; margin-top: 4px; text-shadow: 1px 1px 0 #fff; }
+.starburst { background: #ffeb3b; border: 3px solid #d32f2f; border-radius: 50%; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: bold; font-size: 14px; color: #d32f2f; box-shadow: 0 0 0 4px #ff9800, 3px 3px 0 #000; transform: rotate(-12deg); line-height: 1.1; }
+.main-nav { background: #1565c0; display: flex; flex-wrap: wrap; border-bottom: 3px solid #0d47a1; }
+.main-nav a { color: #fff; text-decoration: none; padding: 10px 14px; font-size: 13px; font-weight: bold; border-right: 1px solid #1976d2; }
+.main-nav a:hover { background: #0d47a1; }
+.content-area { display: flex; min-height: 380px; background: #f5f5f5; }
+.sidebar { width: 200px; background: #e1bee7; border-right: 2px solid #9c27b0; padding: 10px 0; flex-shrink: 0; }
+.service-list { list-style: none; }
+.service-list li { padding: 8px 12px; font-size: 13px; font-weight: bold; color: #4a148c; border-bottom: 1px solid #ce93d8; cursor: pointer; }
+.service-list li:hover { background: #ce93d8; }
+.plus { color: #d32f2f; font-weight: bold; margin-right: 4px; }
+.happy-clients { margin-top: 20px; padding: 10px; text-align: center; }
+.happy-clients h3 { font-size: 14px; color: #4a148c; margin-bottom: 8px; background: #fff; padding: 4px; border: 2px solid #9c27b0; }
+.photo-placeholder { width: 70px; height: 50px; background: #fff; border: 2px solid #666; display: inline-flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 3px; }
+.trusted { background: #fff; border: 2px solid #4caf50; padding: 6px; font-size: 11px; font-weight: bold; color: #2e7d32; margin-top: 8px; }
+.main-content { flex: 1; padding: 15px; position: relative; background: linear-gradient(180deg, #e3f2fd 0%, #fff 100%); }
+.handshake-placeholder { font-size: 60px; opacity: 0.8; position: absolute; top: 10px; left: 20px; }
+.we-make { margin-left: 100px; margin-top: 20px; }
+.we-make h2 { font-size: 28px; line-height: 1.2; margin-bottom: 15px; }
+.we-make .green { color: #2e7d32; font-size: 32px; }
+.we-make .red { color: #d32f2f; font-size: 36px; text-shadow: 2px 2px 0 #ffeb3b; }
+.features { list-style: none; }
+.features li { font-size: 15px; font-weight: bold; margin-bottom: 6px; color: #1565c0; }
+.check { color: #2e7d32; font-size: 18px; margin-right: 6px; }
+.seal { width: 100px; height: 100px; background: radial-gradient(circle, #ffeb3b, #ffc107); border: 4px solid #d32f2f; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: bold; color: #d32f2f; box-shadow: 0 0 0 3px #fff, 0 0 0 6px #d32f2f; transform: rotate(-15deg); line-height: 1.2; position: absolute; bottom: 20px; left: 30px; }
+.right-side { width: 200px; background: #fff3e0; border-left: 2px solid #ff9800; padding: 10px; flex-shrink: 0; display: flex; flex-direction: column; gap: 15px; }
+.construction { background: #fff; border: 3px dashed #ff5722; padding: 10px; text-align: center; }
+.workers { font-size: 32px; margin-bottom: 5px; }
+.barrier { background: #ffeb3b; border: 2px solid #000; padding: 6px; font-size: 12px; font-weight: bold; color: #d32f2f; }
+.visitor-counter { background: #e3f2fd; border: 3px solid #1565c0; padding: 10px; text-align: center; }
+.visitor-counter h4 { font-size: 13px; color: #0d47a1; margin-bottom: 8px; }
+.counter-display { background: #000; color: #0f0; font-family: "Courier New", monospace; font-size: 20px; font-weight: bold; padding: 8px 4px; letter-spacing: 2px; border: 2px inset #333; margin-bottom: 8px; }
+.thanks { font-size: 13px; font-weight: bold; color: #d32f2f; line-height: 1.3; }
+.starburst-yellow { background: #ffeb3b; border: 3px solid #d32f2f; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: bold; font-size: 14px; color: #d32f2f; margin: 0 auto; box-shadow: 0 0 0 4px #ff9800; transform: rotate(10deg); line-height: 1.2; }
+.bottom-section { background: linear-gradient(90deg, #e3f2fd, #bbdefb); padding: 15px 20px; border-top: 3px solid #1565c0; display: flex; align-items: center; justify-content: space-between; }
+.get-software h3 { font-size: 22px; color: #0d47a1; margin-bottom: 10px; }
+.devices { font-size: 36px; letter-spacing: 8px; }
+.woman { font-size: 50px; }
+.popup-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; z-index: 100; }
+.popup { background: #fff; border: 4px solid #1565c0; width: 340px; box-shadow: 8px 8px 0 rgba(0,0,0,0.5); animation: popIn 0.4s ease-out; }
+@keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 70% { transform: scale(1.05); } 100% { transform: scale(1); opacity: 1; } }
+.popup-header { background: #1565c0; color: #fff; padding: 8px 12px; font-weight: bold; font-size: 14px; display: flex; justify-content: space-between; align-items: center; }
+.close-btn { background: #d32f2f; color: #fff; border: none; width: 24px; height: 24px; font-size: 18px; cursor: pointer; border-radius: 2px; line-height: 1; }
+.popup-body { padding: 15px; background: linear-gradient(180deg, #fff 0%, #ffebee 100%); }
+.congrats-starburst { background: radial-gradient(circle, #ffeb3b 30%, #ff5722 100%); border: 4px solid #d32f2f; padding: 20px 15px; text-align: center; box-shadow: inset 0 0 20px rgba(255,255,255,0.5); }
+.congrats-starburst h2 { font-family: Impact, "Arial Black", sans-serif; font-size: 28px; color: #d32f2f; text-shadow: 2px 2px 0 #fff; margin-bottom: 5px; }
+.you-are { font-size: 16px; font-weight: bold; color: #fff; text-shadow: 1px 1px 0 #000; }
+.million { font-size: 22px; font-weight: bold; color: #fff; text-shadow: 2px 2px 0 #000; margin: 5px 0 10px; }
+.gift { font-size: 50px; margin: 10px 0; animation: bounce 1s infinite; }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.claim-btn { background: linear-gradient(180deg, #4caf50, #2e7d32); color: #fff; border: 3px solid #1b5e20; padding: 12px 30px; font-size: 18px; font-weight: bold; cursor: pointer; border-radius: 8px; box-shadow: 0 4px 0 #1b5e20; text-transform: uppercase; }
+.claim-btn:hover { background: linear-gradient(180deg, #66bb6a, #388e3c); }
+.claim-btn:active { box-shadow: 0 1px 0 #1b5e20; transform: translateY(3px); }
+@media (max-width: 900px) { .content-area { flex-direction: column; } .sidebar, .right-side { width: 100%; } .main-title h1 { font-size: 36px; } }
+  </style>
+</head>
+<body>
+  <div class="browser-bar">
+    <div class="browser-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+    <div class="tabs"><div class="tab active">Lala Co. | Best Software</div><div class="tab-new">+</div></div>
+    <div class="address-bar"><span>🔒</span><span class="url">www.lalacompany.com</span></div>
+  </div>
+  <div class="website">
+    <header class="top-banner">
+      <div class="logo-box"><div class="boss-face">😎</div><div class="boss-name">LALA<br>COMPANY</div></div>
+      <div class="main-title"><h1>LALA COMPANY</h1><p class="tagline">Software Banate Hain, Paisa Wapas Nahi Dete</p></div>
+      <div class="starburst">Cheap<br>and<br>Best</div>
+    </header>
+    <nav class="main-nav">
+      <a href="#">Home</a><a href="#">About Us</a><a href="#">Our Services</a><a href="#">Download</a><a href="#">Portfolio</a><a href="#">Clients</a><a href="#">Payment</a><a href="#">Contact Us</a>
+    </nav>
+    <div class="content-area">
+      <aside class="sidebar">
+        <ul class="service-list">
+          <li><span class="plus">+</span> Web Design</li><li><span class="plus">+</span> Software Development</li><li><span class="plus">+</span> Mobile App</li><li><span class="plus">+</span> SEO Service</li><li><span class="plus">+</span> Bulk SMS</li><li><span class="plus">+</span> Data Entry</li><li><span class="plus">+</span> IT Consulting</li><li><span class="plus">+</span> Domain & Hosting</li><li><span class="plus">+</span> Other Services</li>
+        </ul>
+        <div class="happy-clients"><h3>Our Happy Clients</h3><div><div class="photo-placeholder">🤝</div><div class="photo-placeholder">👥</div></div><div class="trusted">Trusted by 1000+ Clients</div></div>
+      </aside>
+      <main class="main-content">
+        <div class="handshake-placeholder">🤝</div>
+        <div class="we-make"><h2>We Make<br><span class="green">Your Business</span><br><span class="red">Grow!!!</span></h2>
+          <ul class="features"><li><span class="check">✓</span> Best Quality</li><li><span class="check">✓</span> 24x7 Support</li><li><span class="check">✓</span> Lowest Price</li><li><span class="check">✓</span> 100% Result*</li><li><span class="check">✓</span> Client Satisfaction</li></ul>
+        </div>
+        <div class="seal">100%<br>SATISFACTION<br>GUARANTEE</div>
+      </main>
+      <aside class="right-side">
+        <div class="construction"><div class="workers">👷‍♂️ 👷‍♂️</div><div class="barrier">🚧 Site Under Construction 🚧</div></div>
+        <div class="visitor-counter"><h4>Visitor Counter</h4><div class="counter-display">1 0 0 0 0 0 0</div><p class="thanks">Thank you for<br>Visiting Us!</p></div>
+        <div class="starburst-yellow">Special<br>Discount</div>
+      </aside>
+    </div>
+    <section class="bottom-section">
+      <div class="get-software"><h3>Get Your Software in Just 2 Days!</h3><div class="devices">💻 🖥️ 📱 🖥️</div></div>
+      <div><div class="woman">👩‍💼</div></div>
+    </section>
+    <div class="popup-overlay" id="popup">
+      <div class="popup">
+        <div class="popup-header"><span>Special Offer!!!</span><button class="close-btn" onclick="closePopup()">×</button></div>
+        <div class="popup-body"><div class="congrats-starburst"><h2>CONGRATULATIONS!</h2><p class="you-are">YOU ARE OUR</p><p class="million">1,000,000th VISITOR!</p><div class="gift">🎁</div><button class="claim-btn" onclick="claimPrize()">CLAIM NOW</button></div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+window.addEventListener('load', () => { setTimeout(() => { document.getElementById('popup').style.display = 'flex'; }, 800); });
+function closePopup() { document.getElementById('popup').style.display = 'none'; }
+function claimPrize() { alert('🎉 Congratulations!\n\nYou have won a FREE domain name + hosting for 1 year!\n\nJust share your credit card details to claim...\n\n(Just kidding — this is a parody site 😄)'); closePopup(); }
+setInterval(() => { if (Math.random() > 0.7) { const d = document.querySelector('.counter-display'); if (d) { d.style.opacity = '0.3'; setTimeout(() => d.style.opacity = '1', 100); } } }, 2000);
+  </script>
+</body>
+</html>
